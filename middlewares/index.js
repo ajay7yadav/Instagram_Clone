@@ -1,5 +1,6 @@
 const middlewares = {
-    validSignUp : require('./auth.validation')
+    validSignUp : require('./auth.validation'),
+    JWT : require('./verifyJWT')
 };
 
 

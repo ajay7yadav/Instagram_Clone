@@ -8,6 +8,6 @@ module.exports = (app)=>{
     // signUp 
     app.post('/instagram/app/v1/auth/signup',[validSignUp.validSignUp],controller.signup);
     // signIn
-    app.post('/instagram/app/v1/auth/signin',controller.signin);
+    app.post('/instagram/app/v1/auth/signin',[validSignUp.validSignIn],controller.signin);
 
 };

@@ -54,6 +54,25 @@ const validSignUp = async(req, res, next)=>{
     next();
 }
 
+// Middleware for signIn to check proper validation
+const validateSignInRequestBody = (req, res, next) => {
+    
+    // Validate if the email is present 
+    if (!req.body.email) {
+        return res.status(400).send({
+            message: "Failed ! email is not provided"
+        });
+    }
+    // Validate if the password is present
+    if (!req.body.password) {
+        return res.status(400).send({
+            message: "Failed ! Password is not provided"
+        });
+    }
+    next();
+}
+
 module.exports = {
-    validSignUp : validSignUp
+    validSignUp : validSignUp,
+    validSignIn : validateSignInRequestBody
 };
