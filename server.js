@@ -11,6 +11,8 @@ const Port = require('./configs/serverConfig');
 mongoose.connect(dbConfig.DB_URL, ()=>{
     console.log("DB Connected");
 });
+//
+require('./routes/auth_API')(app);
 
 app.listen(Port.PORT, ()=>{
     console.log(`Server is running on port no : ${Port.PORT}`);
