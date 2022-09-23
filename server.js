@@ -14,6 +14,7 @@ mongoose.connect(dbConfig.DB_URL, ()=>{
 //
 require('./routes/auth_API')(app);
 require('./routes/post_API')(app);
+require('./routes/like_API')(app);
 
 app.listen(Port.PORT, ()=>{
     console.log(`Server is running on port no : ${Port.PORT}`);

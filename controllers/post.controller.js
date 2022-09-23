@@ -1,5 +1,6 @@
 const User = require('../models/auth.model');
 const Post = require('../models/post.model');
+const utill = require('../util/postObj');
 
 // Handler for create post on instagram
 exports.createPost = async(req, res)=>{
@@ -29,7 +30,7 @@ exports.getPostByUser = async(req, res)=>{
     let posts = await Post.find({postBy : req.userId});
 
     try {
-        res.status(200).send(posts);
+        res.status(200).send(utill.postModifier(posts));
 
     }catch(err){
 
@@ -44,7 +45,7 @@ exports.getRecentlyAdded = async(req, res)=>{
     let posts = await Post.find().sort({createAt : -1});
 
     try {
-        res.status(200).send(posts);
+        res.status(200).send(utill.postModifier(posts));
 
     }catch(err){
 

@@ -7,6 +7,9 @@ const Posts = mongoose.Schema({
     postBy : {
         type : String
     },
+    likes : {
+        type : [String]
+    },
     createAt : {
         type : Date,
         immutable :true,            // never change time
