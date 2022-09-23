@@ -16,6 +16,10 @@ const Users = mongoose.Schema({
     password : {
         type : String,
         required : true
+    },
+    post : {
+        type : [mongoose.SchemaTypes.ObjectId],
+        ref : 'posts'
     }
 });
 
