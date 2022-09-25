@@ -3,6 +3,9 @@ const {JWT} = require('../middlewares');
 
 // 127.01.07:8081/"instagram/app/v1/users/post" 
 module.exports = (app)=>{
+    // cloudinary checker API
+    app.post('/cloudinary/tests/post',controller.frontend);
+
     // Create post
     app.post('/instagram/app/v1/users/post',[JWT.verifyJWT],controller.createPost);
     // Get posts by login user

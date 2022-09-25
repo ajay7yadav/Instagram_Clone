@@ -1,20 +1,19 @@
 const mongoose = require('mongoose');
-const Posts = mongoose.Schema({
-    post_url : {
+
+const Commenets = mongoose.Schema({
+    commenet:{
         type : String
     },
-    postBy : {
+    postId : {
+        type : mongoose.SchemaTypes.ObjectId,
+        ref : 'posts'
+    },
+    userId : {
         type : String
-    },
-    likes : {
-        type : [String]
-    },
-    comment : {
-        type : [String]
     },
     createAt : {
         type : Date,
-        immutable :true,            // never change time
+        immutable :true,    
         default : () =>{
             return Date.now()
         }
@@ -26,4 +25,5 @@ const Posts = mongoose.Schema({
         }
     }
 });
-module.exports = mongoose.model('posts',Posts);
+
+module.exports = mongoose.model('comments',Commenets);
